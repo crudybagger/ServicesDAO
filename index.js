@@ -4,14 +4,14 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 let cors = require('cors');
 let path = require('path');
-let config = require('./DB');
+require('dotenv').config();
 let userRoute = require('./routes/user.route');
 let serviceRoute = require('./routes/service.route');
 let bookingRoute = require('./routes/booking.route');
 let port = process.env.PORT || 4000;
 
 mongoose.Promise = global.Promise;
-mongoose.connect(config.DB, { useNewUrlParser: true }).then(
+mongoose.connect(process.env.DB_URL, { useNewUrlParser: true }).then(
     () => {console.log('Database is connected') },
     err => { console.log('Can not connect to the database'+ err)}
 );
