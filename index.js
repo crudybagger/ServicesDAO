@@ -24,7 +24,7 @@ app.use('/users', userRoute);
 app.use('/services', serviceRoute);
 app.use('/bookings', bookingRoute);
 
-app.listen(port, function(){
+app.listen(port, () => {
     console.log('Listening on port ' + port);
     }
 );
